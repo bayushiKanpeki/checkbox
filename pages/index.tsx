@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import type { NextPage } from 'next';
 import Checkbox from '../components/Checkbox';
+import Spacer from '../components/Spacer';
+import StyledCheckbox from '../components/StyledCheckbox';
 
 const Home: NextPage = () => {
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
+  const [checked3, setChecked3] = React.useState(false);
 
   const handleChangeOne = () => {
     setCheckedOne(!checkedOne);
@@ -13,6 +16,10 @@ const Home: NextPage = () => {
 
   const handleChangeTwo = () => {
     setCheckedTwo(!checkedTwo);
+  };
+
+  const handleChange3 = () => {
+    setChecked3(!checked3);
   };
 
   return (
@@ -30,6 +37,12 @@ const Home: NextPage = () => {
         onChange={handleChangeTwo}
       />
       <p>Is "My Value" checked? {checkedTwo.toString()}</p>
+      <Spacer size={200} />
+      <StyledCheckbox
+        label="My label Two"
+        value={checked3}
+        onChange={handleChange3}
+      />
     </PageWrapper>
   );
 };
